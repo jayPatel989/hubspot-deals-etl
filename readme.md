@@ -22,16 +22,17 @@ The service:
 
 # Features
 
-- HubSpot Deals API integration
-- DLT-based ETL pipeline
-- PostgreSQL database storage
-- REST API endpoints
-- Swagger/OpenAPI documentation
-- Dockerized development environment
-- Extraction checkpointing
-- Job status tracking
-- Health monitoring
-- Error handling and logging
+- HubSpot Deals API integration for securely fetching real-time deals data from HubSpot CRM using Private App access tokens.
+- DLT-based ETL pipeline for extracting, transforming, normalizing, and loading HubSpot Deals data into PostgreSQL datasets.
+- PostgreSQL database storage for persisting extracted deal records, pipeline metadata, and checkpoint information.
+- REST API endpoints for starting extraction jobs, monitoring scan progress, checking status, and managing ETL workflows.
+- Swagger/OpenAPI documentation for interactive API testing, endpoint visualization, and request/response validation.
+- Dockerized development environment for running backend services, PostgreSQL, and Redis consistently across systems.
+- Extraction checkpointing support for tracking progress and enabling reliable recovery during interrupted extraction jobs.
+- Job status tracking system for monitoring scan lifecycle states such as pending, running, completed, and failed.
+- Health monitoring endpoints for verifying backend availability, service status, and overall application readiness.
+- Error handling and structured logging system for capturing failures, debugging issues, and monitoring pipeline activity.
+- DLT is used to manage data extraction, normalization, schema generation, and loading into PostgreSQL datasets efficiently.
 
 ---
 
@@ -181,7 +182,7 @@ http://localhost:5200/docs
 
 #### 6. Create Test Deals
 
-* Example Date Used:
+* Example Data Used:
 
 | Deal Name      | Amount | Stage                      |
 | -------------- | ------ | -------------------------- |
