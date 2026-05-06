@@ -166,7 +166,7 @@ http://localhost:5200/docs
 
 ---
 
-### 5. HubSpot Setup
+#### 5. HubSpot Setup
 
 * Create HubSpot Developer Account
 - Go to: https://developers.hubspot.com/
@@ -177,7 +177,7 @@ http://localhost:5200/docs
 - Enable scope: crm.objects.deals.read
 - Generate access token
 
-### 6. Create Test Deals
+#### 6. Create Test Deals
 
 * Example Date Used
 | Deal Name | Amount | Stage       |
@@ -293,6 +293,16 @@ python app.py
 
 ---
 
+## Deployment
+
+### Production
+
+```bash
+docker-compose --profile prod up -d
+```
+
+---
+
 ### Database Verification
 The extraction pipeline stores HubSpot Deals data in PostgreSQL using DLT.
 
@@ -360,16 +370,6 @@ SELECT * FROM hubspot_deals LIMIT 5;
 ```bash
 docker-compose down
 docker-compose up --build
-```
-
----
-
-## Deployment
-
-### Production
-
-```bash
-docker-compose --profile prod up -d
 ```
 
 ---
