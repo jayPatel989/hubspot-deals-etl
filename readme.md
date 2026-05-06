@@ -349,8 +349,7 @@ Project verification files are included in: test-results/
 - Testing screenshots
 
 ## Documentation Files
-### Additional documentation is available in: 
-* docs/
+Additional documentation is available in: docs/
 
 ### Files:
 - API-DOCS.md
