@@ -330,7 +330,11 @@ class ExtractionService:
                 extra={"operation": "execute_scan", "job_id": job_id},
             )
 
-            pipeline.run(source_functions)
+            load_info = pipeline.run(source_functions)
+
+            print("\n========== DLT LOAD INFO ==========")
+            print(load_info)
+            print("===================================\n")
 
             # Get final record count
             latest_checkpoint = self.job_service.get_latest_checkpoint(job_id)

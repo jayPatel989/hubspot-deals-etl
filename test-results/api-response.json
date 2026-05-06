@@ -1,0 +1,8 @@
+{
+  "scanId": "final-scan-002",
+  "status": "completed",
+  "recordsExtracted": 5,
+  "source": "hubspot_deals",
+  "dataset": "hubspot_deals_org_123",
+  "message": "Successfully extracted 5 deals from HubSpot"
+}

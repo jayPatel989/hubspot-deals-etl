@@ -1,0 +1,105 @@
+-[ RECORD 1 ]-------------------+-----------------------------------------------------------------------
+id                              | 323517724390
+created_at                      | 2026-05-05 17:35:47.813+00
+updated_at                      | 2026-05-05 17:36:02.447+00
+archived                        | f
+url                             | https://app-na2.hubspot.com/contacts/246093573/record/0-3/323517724390
+_extracted_at                   | 2026-05-06 12:34:00.75753+00
+_scan_id                        | final-debug-scan
+_organization_id                | unknown
+_page_number                    | 1
+_source_service                 | hubspot_deals
+properties__amount              | 1500
+properties__closedate           | 2026-05-31 17:35:29.898+00
+properties__createdate          | 2026-05-05 17:35:47.813+00
+properties__dealname            | Test Deal 5           
+properties__dealstage           | contractsent
+properties__hs_lastmodifieddate | 2026-05-05 17:36:02.447+00
+properties__hs_object_id        | 323517724390
+properties__pipeline            | default
+_dlt_load_id                    | 1778070838.7938888
+_dlt_id                         | OoctJ9gcrrit2g
+-[ RECORD 2 ]-------------------+-----------------------------------------------------------------------
+id                              | 323525654202
+created_at                      | 2026-05-05 17:35:23.983+00
+updated_at                      | 2026-05-05 17:35:45.585+00
+archived                        | f
+url                             | https://app-na2.hubspot.com/contacts/246093573/record/0-3/323525654202
+_extracted_at                   | 2026-05-06 12:34:00.770089+00
+_scan_id                        | final-debug-scan
+_organization_id                | unknown
+_page_number                    | 1
+_source_service                 | hubspot_deals
+properties__amount              | 3000
+properties__closedate           | 2026-05-31 17:35:09.271+00
+properties__createdate          | 2026-05-05 17:35:23.983+00
+properties__dealname            | Test Deal 4
+properties__dealstage           | decisionmakerboughtin
+properties__hs_lastmodifieddate | 2026-05-05 17:35:45.585+00
+properties__hs_object_id        | 323525654202
+properties__pipeline            | default
+_dlt_load_id                    | 1778070838.7938888
+_dlt_id                         | lS7x8xpc5gwtgA
+-[ RECORD 3 ]-------------------+-----------------------------------------------------------------------
+id                              | 323527062242
+created_at                      | 2026-05-05 14:09:17.192+00
+updated_at                      | 2026-05-05 14:09:37.145+00
+archived                        | f
+url                             | https://app-na2.hubspot.com/contacts/246093573/record/0-3/323527062242
+_extracted_at                   | 2026-05-06 12:34:00.780056+00
+_scan_id                        | final-debug-scan
+_organization_id                | unknown
+_page_number                    | 1
+_source_service                 | hubspot_deals
+properties__amount              | 8000
+properties__closedate           | 2026-05-31 14:08:50.284+00
+properties__createdate          | 2026-05-05 14:09:17.192+00
+properties__dealname            | Test Deal 3
+properties__dealstage           | presentationscheduled
+properties__hs_lastmodifieddate | 2026-05-05 14:09:37.145+00
+properties__hs_object_id        | 323527062242
+properties__pipeline            | default
+_dlt_load_id                    | 1778070838.7938888
+_dlt_id                         | b2CM+pSyNg3HDg
+-[ RECORD 4 ]-------------------+-----------------------------------------------------------------------
+id                              | 323641606873
+created_at                      | 2026-05-05 14:06:48.488+00
+updated_at                      | 2026-05-05 14:07:03.777+00
+archived                        | f
+url                             | https://app-na2.hubspot.com/contacts/246093573/record/0-3/323641606873
+_extracted_at                   | 2026-05-06 12:34:00.790407+00
+_scan_id                        | final-debug-scan
+_organization_id                | unknown
+_page_number                    | 1
+_source_service                 | hubspot_deals
+properties__amount              | 5000
+properties__closedate           | 2026-05-31 14:06:07.516+00
+properties__createdate          | 2026-05-05 14:06:48.488+00
+properties__dealname            | Test Deal 1
+properties__dealstage           | qualifiedtobuy
+properties__hs_lastmodifieddate | 2026-05-05 14:07:03.777+00
+properties__hs_object_id        | 323641606873
+properties__pipeline            | default
+_dlt_load_id                    | 1778070838.7938888
+_dlt_id                         | XDzvBe279kYdOg
+-[ RECORD 5 ]-------------------+-----------------------------------------------------------------------
+id                              | 323641606880
+created_at                      | 2026-05-05 14:08:06.842+00
+updated_at                      | 2026-05-05 14:09:14.833+00
+archived                        | f
+url                             | https://app-na2.hubspot.com/contacts/246093573/record/0-3/323641606880
+_extracted_at                   | 2026-05-06 12:34:00.800741+00
+_scan_id                        | final-debug-scan
+_organization_id                | unknown
+_page_number                    | 1
+_source_service                 | hubspot_deals
+properties__amount              | 2000
+properties__closedate           | 2026-05-31 14:07:48.415+00
+properties__createdate          | 2026-05-05 14:08:06.842+00
+properties__dealname            | Test Deal 2
+properties__dealstage           | appointmentscheduled
+properties__hs_lastmodifieddate | 2026-05-05 14:09:14.833+00
+properties__hs_object_id        | 323641606880
+properties__pipeline            | default
+_dlt_load_id                    | 1778070838.7938888
+_dlt_id                         | Vr1lHO5bQNZNiA

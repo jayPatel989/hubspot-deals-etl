@@ -387,4 +387,4 @@ def create_data_source(
 
                 raise e
 
-    return [get_main_data]
+    return [get_main_data()]

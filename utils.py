@@ -81,11 +81,11 @@ def enhance_filters_with_metadata(filters: Dict[str, Any], scan_id: str) -> Dict
 def build_dlt_env_vars(config: Dict[str, Any]) -> Dict[str, str]:
     """Build DLT environment variables from config"""
     return {
-        'DESTINATION__POSTGRES__CREDENTIALS__DATABASE': config.get('db_name', 'hubspot_data'),
-        'DESTINATION__POSTGRES__CREDENTIALS__USERNAME': config.get('db_user', 'postgres'),
-        'DESTINATION__POSTGRES__CREDENTIALS__PASSWORD': config.get('db_password', ''),
-        'DESTINATION__POSTGRES__CREDENTIALS__HOST': config.get('db_host', 'localhost'),
-        'DESTINATION__POSTGRES__CREDENTIALS__PORT': str(config.get('db_port', 5432)),
+        "DESTINATION__POSTGRES__HOST": config.get("DB_HOST"),
+        "DESTINATION__POSTGRES__PORT": str(config.get("DB_PORT")),
+        "DESTINATION__POSTGRES__DATABASE": config.get("DB_NAME"),
+        "DESTINATION__POSTGRES__USERNAME": config.get("DB_USER"),
+        "DESTINATION__POSTGRES__PASSWORD": config.get("DB_PASSWORD"),
     }
 
 
