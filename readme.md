@@ -182,13 +182,14 @@ http://localhost:5200/docs
 #### 6. Create Test Deals
 
 * Example Date Used:
-| Deal Name | Amount | Stage       |
-| --------- | ------ | ----------- |
-| Deal 1    | 5000   | qualified   |
-| Deal 2    | 25000  | negotiation |
-| Deal 3    | 50000  | proposal    |
-| Deal 4    | 75000  | closedwon   |
-| Deal 5    | 100000 | closedlost  |
+
+| Deal Name      | Amount | Stage                      |
+| -------------- | ------ | -------------------------- |
+| Test Deal 1    | 5000   | qualified                  |
+| Test Deal 2    | 2000   | appointment scheduled      |
+| Test Deal 3    | 8000   | presentation scheduled     |
+| Test Deal 4    | 3000   | Decision Maker Bought in   |
+| Test Deal 5    | 1500   | Contract Sent              |
 
 ---
 
