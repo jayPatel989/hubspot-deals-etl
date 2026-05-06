@@ -4,17 +4,48 @@ A robust Flask-RESTX API service for extracting **HubSpot Deals data** using DLT
 
 ---
 
-## Features
+# Project Overview
 
-* **HubSpot Deals API Integration**: Fetches real deals data from HubSpot CRM
-* **DLT Pipeline**: Efficient ETL pipeline for loading data into PostgreSQL
-* **Flask-RESTX API**: Clean REST API with Swagger documentation
-* **Async Processing**: Background scan execution with status tracking
-* **Docker Support**: Multi-environment setup (dev/stage/prod)
-* **Checkpointing**: Resume extraction from last state
-* **Monitoring & Logging**: Health checks, logs, and pipeline info
-* **Validation**: Input validation using schemas
-* **Production Ready**: Error handling, structured logging, scalable design
+This project was generated using the DLT Generator framework and customized for HubSpot Deals extraction.
+
+The service:
+
+- Connects to HubSpot API using Private App Access Token
+- Extracts HubSpot Deals data
+- Processes and transforms records
+- Loads extracted data into PostgreSQL using DLT
+- Tracks extraction jobs and checkpoints
+- Provides API endpoints for managing scans
+- Includes Swagger API documentation
+
+---
+
+# Features
+
+- HubSpot Deals API integration for securely fetching real-time deals data from HubSpot CRM using Private App access tokens.
+- DLT-based ETL pipeline for extracting, transforming, normalizing, and loading HubSpot Deals data into PostgreSQL datasets.
+- PostgreSQL database storage for persisting extracted deal records, pipeline metadata, and checkpoint information.
+- REST API endpoints for starting extraction jobs, monitoring scan progress, checking status, and managing ETL workflows.
+- Swagger/OpenAPI documentation for interactive API testing, endpoint visualization, and request/response validation.
+- Dockerized development environment for running backend services, PostgreSQL, and Redis consistently across systems.
+- Extraction checkpointing support for tracking progress and enabling reliable recovery during interrupted extraction jobs.
+- Job status tracking system for monitoring scan lifecycle states such as pending, running, completed, and failed.
+- Health monitoring endpoints for verifying backend availability, service status, and overall application readiness.
+- Error handling and structured logging system for capturing failures, debugging issues, and monitoring pipeline activity.
+- DLT is used to manage data extraction, normalization, schema generation, and loading into PostgreSQL datasets efficiently.
+
+---
+
+# Tech Stack
+
+- Python 3.11
+- Flask
+- DLT (Data Load Tool)
+- PostgreSQL
+- SQLAlchemy
+- Docker
+- Redis
+- Swagger / Flask-RESTX
 
 ---
 
@@ -22,35 +53,59 @@ A robust Flask-RESTX API service for extracting **HubSpot Deals data** using DLT
 
 ```
 hubspot-deals-etl/
-├── README.md
-├── docker-compose.yml
-├── Dockerfile.dev
-├── Dockerfile.stage
-├── Dockerfile.prod
-├── requirements.txt
-├── .env.example
-├── .gitignore
-├── .dockerignore
 │
-├── app.py
-├── wsgi.py
-├── config.py
-├── loki_logger.py
-├── utils.py
+├── .dlt/
 │
 ├── api/
+│   ├── __init__.py
 │   ├── routes.py
-│   └── schemas.py
+│   ├── schemas.py
+│   └── swagger_schemas.py
 │
-├── services/
-│   ├── extraction_service.py
-│   ├── api_service.py
-│   ├── data_source.py
-│   └── database_service.py
+├── docs/
+│   ├── API-DOCS.md
+│   ├── DATABASE-DESIGN-DOCS.md
+│   └── INTEGRATION-DOCS.md
+│
+├── logs/
+│   └── app.log
 │
 ├── models/
-├── docs/
-└── logs/
+│   ├── __init__.py
+│   ├── database.py
+│   └── models.py
+│
+├── services/
+│   ├── __init__.py
+│   ├── api_service.py
+│   ├── data_source.py
+│   ├── database_service.py
+│   ├── extraction_service.py
+│   └── job_service.py
+│
+├── test-results/
+│   ├── api-response.json
+│   ├── db_data.txt
+│   └── sample-data.txt
+│
+├── .dockerignore
+├── .gitignore
+│
+├── app.py
+├── config.py
+├── docker-compose.yml
+│
+├── Dockerfile.dev
+├── Dockerfile.prod
+├── Dockerfile.stage
+├── Dockerfile.test
+│
+├── encrypter.py
+├── loki_logger.py
+├── README.md
+├── requirements.txt
+├── utils.py
+└── wsgi.py
 ```
 
 ---
@@ -78,6 +133,7 @@ cd hubspot-deals-etl
 
 #### 2. Create `.env`
 
+Example:
 ```env
 HUBSPOT_ACCESS_TOKEN=your_token_here
 DB_HOST=localhost
@@ -110,6 +166,34 @@ http://localhost:5200/docs
 ```
 
 ---
+
+#### 5. HubSpot Setup
+
+* Create HubSpot Developer Account
+- Go to: https://developers.hubspot.com/
+- Create a developer account
+- Create a test account
+- Navigate to: Settings → Integrations → Private Apps
+- Create a Private App
+- Enable scope: crm.objects.deals.read
+- Generate access token
+
+---
+
+#### 6. Create Test Deals
+
+* Example Data Used:
+
+| Deal Name      | Amount | Stage                      |
+| -------------- | ------ | -------------------------- |
+| Test Deal 1    | 5000   | qualified                  |
+| Test Deal 2    | 2000   | appointment scheduled      |
+| Test Deal 3    | 8000   | presentation scheduled     |
+| Test Deal 4    | 3000   | Decision Maker Bought in   |
+| Test Deal 5    | 1500   | Contract Sent              |
+
+---
+
 
 ## API Documentation
 
@@ -215,13 +299,71 @@ python app.py
 
 ---
 
-### Access Database
+## Deployment
+
+### Production
 
 ```bash
-docker-compose exec postgres psql -U postgres -d hubspot_db
+docker-compose --profile prod up -d
 ```
 
 ---
+
+### Database Verification
+The extraction pipeline stores HubSpot Deals data in PostgreSQL using DLT.
+
+* Connect to PostgreSQL Container
+```bash
+docker exec -it hubspot_deals_postgres_dev psql -U postgres -d hubspot_deals_data_dev
+```
+
+* View Available Schemas
+```SQL
+\dn
+```
+Expected schema: hubspot_deals_org_123
+
+* Switch to Extraction Schema:
+```SQL
+SET search_path TO hubspot_deals_org_123;
+```
+
+* View Extracted Tables
+```SQL
+\dt;
+```
+
+* Verify Extracted Records
+```SQL
+SELECT * FROM hubspot_deals LIMIT 5;
+```
+---
+
+## Test Results
+Project verification files are included in: test-results/
+
+### Tested Scenarios
+
+- Health endpoint verification
+- Successful HubSpot extraction
+- Database storage verification
+- Swagger API testing
+- Invalid request validation
+- Docker container verification
+
+### Contents include:
+- API responses
+- Database verification output
+- Extracted records proof
+- Testing screenshots
+
+## Documentation Files
+Additional documentation is available in: docs/
+
+### Files:
+- API-DOCS.md
+- DATABASE-DESIGN-DOCS.md
+- INTEGRATION-DOCS.md
 
 ## Troubleshooting
 
@@ -243,16 +385,6 @@ docker-compose exec postgres psql -U postgres -d hubspot_db
 ```bash
 docker-compose down
 docker-compose up --build
-```
-
----
-
-## Deployment
-
-### Production
-
-```bash
-docker-compose --profile prod up -d
 ```
 
 ---
