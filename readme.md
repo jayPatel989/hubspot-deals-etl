@@ -177,9 +177,11 @@ http://localhost:5200/docs
 - Enable scope: crm.objects.deals.read
 - Generate access token
 
+---
+
 #### 6. Create Test Deals
 
-* Example Date Used
+* Example Date Used:
 | Deal Name | Amount | Stage       |
 | --------- | ------ | ----------- |
 | Deal 1    | 5000   | qualified   |
@@ -187,6 +189,8 @@ http://localhost:5200/docs
 | Deal 3    | 50000  | proposal    |
 | Deal 4    | 75000  | closedwon   |
 | Deal 5    | 100000 | closedlost  |
+
+---
 
 
 ## API Documentation
