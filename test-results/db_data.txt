@@ -1,3 +1,12 @@
+Database: hubspot_deals_data_dev
+Schema: hubspot_deals_org_123
+Table: hubspot_deals
+
+Successfully stored 5 HubSpot deals in PostgreSQL.
+
+Sample Query:
+SELECT * FROM hubspot_deals LIMIT 5;
+
 -[ RECORD 1 ]-------------------+-----------------------------------------------------------------------
 id                              | 323517724390
 created_at                      | 2026-05-05 17:35:47.813+00
