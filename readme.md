@@ -340,8 +340,7 @@ SELECT * FROM hubspot_deals LIMIT 5;
 ---
 
 ## Test Results
-### Project verification files are included in: 
-* test-results/
+Project verification files are included in: test-results/
 
 ### Contents include:
 - API responses
