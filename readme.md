@@ -342,6 +342,15 @@ SELECT * FROM hubspot_deals LIMIT 5;
 ## Test Results
 Project verification files are included in: test-results/
 
+### Tested Scenarios
+
+- Health endpoint verification
+- Successful HubSpot extraction
+- Database storage verification
+- Swagger API testing
+- Invalid request validation
+- Docker container verification
+
 ### Contents include:
 - API responses
 - Database verification output
